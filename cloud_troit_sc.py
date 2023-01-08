@@ -1,3 +1,10 @@
+'''
+coding: utf-8
+By Gulam Mohammed Sajeed - github.com/sajeeds4
+Twitter : S A ج D (@0101011011010O)
+'''
+
+
 import configparser
 import pandas as pd
 import openpyxl
@@ -24,11 +31,28 @@ if api_key is None:
 
 
 
+def banner():
+    print("""%s
+    
+ ____    _       _ _____ _____ ____  
+/ ___|  / \     | | ____| ____|  _ \ 
+\___ \ / _ \ _  | |  _| |  _| | | | |
+ ___) / ___ \ |_| | |___| |___| |_| |
+|____/_/   \_\___/|_____|_____|____/ 
+
+        
+%s%s
+       # By Gulam Mohammed Sajeed
+       # Twitter : S A ج D (@0101011011010O)
+       
+    """ % (R, W, Y))
 
 print("Please enter the names of the input and output files.")
 File_name = str(input("Enter the file name here with extension : "))
 Row_name = str(input("Enter the row name here : "))
 outs = str(input("Enter the desired output file name with extension : "))
+bouts = str(input("Enter the desired output file name for not found websites with extension :"))
+
 
 def website_to_ip(website):
   try:
@@ -90,3 +114,30 @@ for index, row in df.iterrows():
 
 # Save the output Excel file
 wb.save(outs)
+
+# Read the input and output Excel files
+df_input = pd.read_excel(File_name)
+df_output = pd.read_excel(outs)
+
+# Extract the 'Website' column from the input and output DataFrames
+websites_input = df_input[Row_name]
+websites_output = df_output['Website']
+
+# Find the unique websites in the input file
+unique_websites = websites_input[~websites_input.isin(websites_output)]
+
+# Create a new Excel file for the unique websites
+wb_unique = openpyxl.Workbook()
+ws_unique = wb_unique.active
+ws_unique.title = 'Sheet1'
+
+# Add a header row to the unique websites sheet
+ws_unique.append(['Unique Websites'])
+
+# Add the unique websites to the sheet
+for website in unique_websites:
+    ws_unique.append([website])
+
+# Save the unique websites Excel file
+wb_unique.save(bouts)
+
