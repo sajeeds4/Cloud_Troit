@@ -39,10 +39,12 @@ example.com
 notawebsite
 
 Output file (output.xlsx):
-Website    	IP Address	    Organization	    Using Cloud Provider
-google.com	172.217.16.110	Google LLC	      Yes
-example.com	93.184.216.34	  Cloudflare, Inc.	No
+Website    	        IP Address	            Organization	    Using Cloud Provider
+google.com      	172.217.16.110	        Google LLC	        Yes
+example.com 	    93.184.216.34	        Cloudflare, Inc.	No
+
 
 Output file with websites not found in the first output file (not_found.xlsx):
+
 Website
 notawebsite
