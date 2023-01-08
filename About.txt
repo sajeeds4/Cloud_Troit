@@ -1,0 +1,22 @@
+Welcome to the Website Cloud Provider Checker tool! This tool is designed to help you determine if a website is hosted on a cloud provider like Amazon Web Services (AWS), Google Cloud Platform, or Microsoft Azure.
+
+Before we dive into how this tool works, let's first define what a cloud provider is. A cloud provider is a company that offers cloud computing services, which allow users to store and access data, applications, and other resources over the internet rather than on their own physical servers or devices. Some examples of popular cloud providers include AWS, Google Cloud Platform, and Microsoft Azure.
+
+Now, let's talk about how this tool can help you determine if a website is hosted on a cloud provider. When you visit a website, your computer sends a request to the server where the website is hosted, asking for the content of the website. The server then responds by sending the content back to your computer, which your web browser displays for you.
+
+The server that hosts a website is identified by its IP address, which is a unique numerical label assigned to each device connected to a computer network. When you type a website's name into your web browser, your computer uses the Domain Name System (DNS) to convert the name into the IP address of the server where the website is hosted.
+
+This is where the Website Cloud Provider Checker tool comes in. The tool first resolves the website's name to its IP address using the socket library in Python. It then uses the Shodan API to get information about the IP address, including the organization that owns the IP address and any cloud providers that are hosting it. The Shodan API is a search engine for internet-connected devices, and it allows users to search for specific types of devices and retrieve information about them.
+
+Once the tool has retrieved this information, it writes it to an Excel file, along with the website's name. The Excel file contains the following columns:
+
+    Website: The name of the website
+    IP Address: The IP address of the server where the website is hosted
+    Organization: The organization that owns the IP address
+    Using Cloud Provider: Whether or not the website is hosted on a cloud provider
+
+The tool also creates a separate Excel file containing the websites that were present in the input file but not in the output file. These are the websites that either could not be resolved to an IP address or could not be found in the Shodan API.
+
+To use the Website Cloud Provider Checker tool, you will need to have a Shodan API key, which you can get by signing up for a free account at the Shodan website. You will also need to have Python 3.x installed on your computer, as well as the pandas and openpyxl libraries. Once you have these prerequisites, you can run the tool and enter the names of the input and output files when prompted. The input file should be an Excel file with a column containing the names of the websites you want to check, and the output file will be an Excel file containing the information described above.
+
+We hope you find this tool useful and that it helps you get a better understanding of which websites are hosted on cloud providers and which are not. Happy checking!
