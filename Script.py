@@ -1,7 +1,8 @@
 '''
 coding: utf-8
-By Gulam Mohammed Sajeed - github.com/sajeeds4
-Twitter : S A ج D (@0101011011010O)
+By Gulam Mohammed Sajeed
+Twitter : @0101011011010O
+Github  : https://github.com/sajeeds4
 '''
 
 
