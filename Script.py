@@ -94,7 +94,7 @@ ws = wb.active
 ws.title = 'Sheet1'
 
 # Add a header row to the output sheet
-ws.append(['Website', 'IP Address', 'Organization', 'Using Cloud Provider'])
+ws.append(['Website', 'IP Address', 'Organization', 'Logic Error'])
 
 # Iterate through each row in the input sheet
 for index, row in df.iterrows():
@@ -120,7 +120,6 @@ wb.save(outs)
 df_input = pd.read_excel(File_name)
 df_output = pd.read_excel(outs)
 
-# Extract the 'Website' column from the input and output DataFrames
 websites_input = df_input[Row_name]
 websites_output = df_output['Website']
 
